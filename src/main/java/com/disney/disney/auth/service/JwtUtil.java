@@ -53,8 +53,11 @@ public class JwtUtil {
         return createToken(user.getUsername(),user.getEmail());
     }
     public String generateToken(UserDetails userDetails) {
-        User user = (User) userDetails;     
-        return createToken(user.getUsername(), user.getRoles().get(0).toString());
+        User user = (User) userDetails; 
+        final String authorites=userDetails.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+	        .collect(Collectors.joining(","));
+        return createToken(user.getUsername(),authorites);
     }
 
     private String createToken(String subject, String role) {
