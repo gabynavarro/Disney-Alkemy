@@ -19,7 +19,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @ApiModel("Model BaseClass")
-@Builder
+
 public class BaseClass implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
