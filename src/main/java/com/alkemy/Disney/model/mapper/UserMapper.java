@@ -23,7 +23,7 @@ public class UserMapper {
                 .email(request.getEmail())
                 .firstName(request.getFirst_name())
                 .lastName(request.getLast_name())
-                .password(request.getPassword())                
+                .password(passwordEncoder.encode(request.getPassword()))                
                 .build();     
     }
 
