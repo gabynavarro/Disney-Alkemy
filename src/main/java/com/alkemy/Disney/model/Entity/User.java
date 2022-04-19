@@ -1,4 +1,4 @@
-package com.alkemy.Disney.model.model;
+package com.alkemy.Disney.model.Entity;
 
 import io.swagger.annotations.ApiModel;
 import java.sql.Timestamp;

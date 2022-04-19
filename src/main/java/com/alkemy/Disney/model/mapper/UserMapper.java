@@ -1,6 +1,6 @@
 package com.alkemy.Disney.model.mapper;
 
-import com.alkemy.Disney.model.model.User;
+import com.alkemy.Disney.model.Entity.User;
 import com.alkemy.Disney.model.request.UserRegisterRequest;
 import com.alkemy.Disney.model.request.UserRequest;
 import com.alkemy.Disney.model.response.UserRegisterResponse;

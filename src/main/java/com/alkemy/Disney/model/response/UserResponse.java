@@ -1,6 +1,6 @@
 package com.alkemy.Disney.model.response;
 
-import com.alkemy.Disney.model.model.Role;
+import com.alkemy.Disney.model.Entity.Role;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

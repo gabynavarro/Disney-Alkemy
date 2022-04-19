@@ -1,4 +1,4 @@
-package com.alkemy.Disney.model.model;
+package com.alkemy.Disney.model.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

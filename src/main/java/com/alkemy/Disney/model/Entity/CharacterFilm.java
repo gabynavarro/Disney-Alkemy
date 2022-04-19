@@ -1,7 +1,8 @@
-package com.alkemy.Disney.model.model;
+
+package com.alkemy.Disney.model.Entity;
 
 import io.swagger.annotations.ApiModel;
-import java.time.LocalDate;
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -24,26 +24,25 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@ApiModel("Model Movie")
+@ApiModel("Model Character")
 @Builder
-public class Movie {
-     @Id
+public class CharacterFilm implements Serializable {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    protected boolean deleted;
+    protected boolean deleted;    
     @NotBlank
-    @Size(min = 10, max = 20, message = " Name Gender must be between 10 and 20 characters long")
-    private String title;
-
-    private LocalDate date_created;
-    private int calificated; //del 1-5
-
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
-    private Image image_movie;
-    @ManyToOne
-    private Gender gender_movie;
+    @Size(min = 3, max = 20, message = "Name Character must be between 10 and 20 characters long")  
+    private String name_character;
+    private int age;
+    private double weight;
+    private String history;
     
-    @ManyToMany
-    private List<Character> Character;
+    @ManyToMany()
+    private List <Movie> associated_movies;
+    
+    @OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})   
+    private Image image_profile;
+    
 
 }

@@ -1,7 +1,7 @@
 package com.alkemy.Disney.controller;
 
-import com.alkemy.Disney.model.model.Role;
-import com.alkemy.Disney.model.model.User;
+import com.alkemy.Disney.model.Entity.Role;
+import com.alkemy.Disney.model.Entity.User;
 import com.alkemy.Disney.model.request.UserRequest;
 import com.alkemy.Disney.service.abstraction.IUserService;
 import io.swagger.annotations.Api;

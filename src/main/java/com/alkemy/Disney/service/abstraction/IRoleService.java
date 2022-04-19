@@ -1,6 +1,6 @@
 package com.alkemy.Disney.service.abstraction;
 
-import com.alkemy.Disney.model.model.Role;
+import com.alkemy.Disney.model.Entity.Role;
 import java.util.List;
 
 public interface IRoleService {

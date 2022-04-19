@@ -1,6 +1,6 @@
 package com.alkemy.Disney.repository;
 
-import com.alkemy.Disney.model.model.Role;
+import com.alkemy.Disney.model.Entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

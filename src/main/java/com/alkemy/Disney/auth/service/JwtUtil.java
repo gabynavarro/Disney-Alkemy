@@ -1,6 +1,6 @@
 package com.alkemy.Disney.auth.service;
 
-import com.alkemy.Disney.model.model.User;
+import com.alkemy.Disney.model.Entity.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

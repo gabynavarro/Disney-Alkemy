@@ -1,4 +1,4 @@
-package com.alkemy.Disney.model.model;
+package com.alkemy.Disney.model.Entity;
 
 public enum ListRole {
 

@@ -3,9 +3,9 @@ package com.alkemy.Disney.service;
 import com.alkemy.Disney.auth.exception.ParamNotFound;
 import com.alkemy.Disney.auth.service.JwtUtil;
 import com.alkemy.Disney.model.mapper.UserMapper;
-import com.alkemy.Disney.model.model.ListRole;
-import com.alkemy.Disney.model.model.Role;
-import com.alkemy.Disney.model.model.User;
+import com.alkemy.Disney.model.Entity.ListRole;
+import com.alkemy.Disney.model.Entity.Role;
+import com.alkemy.Disney.model.Entity.User;
 import com.alkemy.Disney.repository.IUserRepository;
 import com.alkemy.Disney.model.request.UserAuthenticatedRequest;
 import com.alkemy.Disney.model.request.UserRegisterRequest;
@@ -18,7 +18,6 @@ import com.alkemy.Disney.service.abstraction.IAuthenticationService;
 import com.alkemy.Disney.service.abstraction.IRegisterUserService;
 import com.alkemy.Disney.service.abstraction.IRoleService;
 import com.alkemy.Disney.service.abstraction.IUserService;
-
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -102,7 +101,7 @@ public class UserServiceImpl  implements UserDetailsService, IRegisterUserServic
         return new UserAuthenticatedResponse(jwtUtil.generateToken(user), user.getEmail(), user.getAuthorities());
     }
 
-
+    //TODO: user me - info usuario log
     @Override
     public User getInfoUser() throws NotFoundException {
         Object userInstance = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
