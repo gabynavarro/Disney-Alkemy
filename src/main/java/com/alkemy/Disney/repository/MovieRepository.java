@@ -1,6 +1,6 @@
 package com.disney.disney.repository;
 
-import com.disney.disney.model.Movie;
+import com.alkemy.Disney.model.model.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

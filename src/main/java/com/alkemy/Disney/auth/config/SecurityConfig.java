@@ -1,6 +1,6 @@
-package com.disney.disney.auth.config;
+package  com.alkemy.Disney.auth.config;
 
-import com.disney.disney.auth.filter.JwtRequestFilters;
+import com.alkemy.Disney.auth.filter.JwtRequestFilters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;

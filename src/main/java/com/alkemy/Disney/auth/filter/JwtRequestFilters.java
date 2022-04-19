@@ -1,7 +1,7 @@
-package com.disney.disney.auth.filter;
+package com.alkemy.Disney.auth.filter;
 
-import com.disney.disney.auth.service.JwtUtil;
-import com.disney.disney.auth.service.UserServiceImpl;
+import com.alkemy.Disney.auth.service.JwtUtil;
+import com.alkemy.Disney.service.UserServiceImpl;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;

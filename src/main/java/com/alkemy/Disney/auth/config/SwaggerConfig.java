@@ -1,4 +1,4 @@
-package com.disney.disney.auth.config;
+package  com.alkemy.Disney.auth.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

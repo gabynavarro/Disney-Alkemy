@@ -1,4 +1,4 @@
-package com.disney.disney.auth.exception;
+package  com.alkemy.Disney.auth.exception;
 
 public class ParamNotFound extends RuntimeException {
     public ParamNotFound(String  error){
