@@ -20,7 +20,7 @@ public class GenderMapper {
     public GenderResponse GenderToResponse(Gender gender){
         return GenderResponse.builder()
                 .id(gender.getId())
-                .image_gender(gender.getImage_gender().getName_image())
+                .image_gender(gender.getImage_gender().getName())
                 .name_gender(gender.getName_gender())
                 .build();        
     }

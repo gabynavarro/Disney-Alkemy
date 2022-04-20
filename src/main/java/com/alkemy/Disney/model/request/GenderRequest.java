@@ -1,7 +1,7 @@
-
 package com.alkemy.Disney.model.request;
 
-import com.alkemy.Disney.model.Entity.Image;
+
+import com.alkemy.Disney.model.Entity.ImageProfile;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -16,5 +16,5 @@ public class GenderRequest {
     @NotBlank
     @Size(min = 3, max = 20, message = " Name Gender must be between 10 and 20 characters long")
     private String name_gender;    
-    private Image image_gender;  
+    private ImageProfile image_gender;  
 }

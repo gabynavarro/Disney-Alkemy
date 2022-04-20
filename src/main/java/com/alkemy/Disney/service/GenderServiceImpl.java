@@ -1,7 +1,7 @@
 package com.alkemy.Disney.service;
 
 import com.alkemy.Disney.model.Entity.Gender;
-import com.alkemy.Disney.model.Entity.Image;
+import com.alkemy.Disney.model.Entity.ImageProfile;
 import com.alkemy.Disney.model.mapper.GenderMapper;
 import com.alkemy.Disney.model.request.GenderRequest;
 import com.alkemy.Disney.model.response.GenderResponse;
@@ -24,9 +24,12 @@ public class GenderServiceImpl implements GenderService {
     
     @Transactional
     @Override
-    public GenderResponse save(GenderRequest request, Image image) {
+    public GenderResponse save(GenderRequest request, ImageProfile image) {
+    
         request.setImage_gender(image);    
-        return genderMapper.GenderToResponse(GenderRepository.save(genderMapper.toGender(request)));
+        Gender g=GenderRepository.save(genderMapper.toGender(request));
+        System.out.println("ACA LLEGA "+ g.getImage_gender().getName());
+        return genderMapper.GenderToResponse(g);
     }
     
     

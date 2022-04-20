@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
@@ -29,6 +30,7 @@ import lombok.Setter;
 public class CharacterFilm implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     private Long id;
     protected boolean deleted;    
     @NotBlank
@@ -41,8 +43,9 @@ public class CharacterFilm implements Serializable {
     @ManyToMany()
     private List <Movie> associated_movies;
     
-    @OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})   
-    private Image image_profile;
+    @OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
+    @JoinColumn(name="image_character")    
+    private ImageProfile image_profile;
     
 
 }

@@ -1,12 +1,9 @@
 package com.alkemy.Disney.service.abstraction;
 
-
-
-import com.alkemy.Disney.model.Entity.Image;
+import com.alkemy.Disney.model.Entity.ImageProfile;
 import org.springframework.web.multipart.MultipartFile;
 
 public interface FileUploadService {
-    public Image uploadImageToDB(MultipartFile image);  
-  
-   
+    public ImageProfile uploadImageProfileToDB(MultipartFile image);  
+
 }

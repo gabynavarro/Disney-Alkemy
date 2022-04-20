@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
@@ -33,9 +34,10 @@ public class Gender {
     @NotBlank
     @Size(min = 3, max = 20, message = " Name Gender must be between 10 and 20 characters long")
     private String name_gender;
-
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
-    private Image image_gender;
+    
+    @OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
+    @JoinColumn(name="image_gender")  
+    private ImageProfile image_gender;
 
     @OneToMany()
     private List<Movie> movies;

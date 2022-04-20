@@ -44,7 +44,7 @@ public class GenderController {
              @RequestPart(value = "image", required = false) MultipartFile image)            
             throws URISyntaxException{
         
-        return genderService.save(request, fileUploadService.uploadImageToDB(image));
+        return genderService.save(request, fileUploadService.uploadImageProfileToDB(image));
     }
 
     @GetMapping

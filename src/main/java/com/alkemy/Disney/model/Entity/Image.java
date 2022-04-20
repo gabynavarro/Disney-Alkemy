@@ -1,17 +1,13 @@
 package com.alkemy.Disney.model.Entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-
 import io.swagger.annotations.ApiModel;
-import javax.validation.constraints.NotBlank;
+import javax.persistence.Column;
 import org.hibernate.annotations.GenericGenerator;
-
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,17 +18,18 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @ApiModel("Model Image")
-@Builder
 public class Image {
-    @Id
+   @Id
     @GeneratedValue(generator="uuid")
     @GenericGenerator(name="uuid",strategy="uuid2")
     private String id;
 
-    @NotBlank
-    private String name_image;   
-    @NotBlank
+    @Column(name = "name", nullable = false, updatable = true)
+    private String name;
+
+    @Column(name = "fileType", nullable = false, updatable = true)
     private String fileType;
+
     @Lob
     @Column(name = "fileData", nullable = false, updatable = true)
     private byte[] fileData;
