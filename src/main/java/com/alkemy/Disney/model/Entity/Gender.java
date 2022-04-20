@@ -35,7 +35,7 @@ public class Gender {
     @Size(min = 3, max = 20, message = " Name Gender must be between 10 and 20 characters long")
     private String name_gender;
     
-    @OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
+    @OneToOne
     @JoinColumn(name="image_gender")  
     private ImageProfile image_gender;
 

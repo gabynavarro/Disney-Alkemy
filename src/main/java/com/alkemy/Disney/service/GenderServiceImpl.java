@@ -28,7 +28,7 @@ public class GenderServiceImpl implements GenderService {
     
         request.setImage_gender(image);    
         Gender g=GenderRepository.save(genderMapper.toGender(request));
-        System.out.println("ACA LLEGA "+ g.getImage_gender().getName());
+//        System.out.println("ACA LLEGA "+ g.getImage_gender().getName_image());
         return genderMapper.GenderToResponse(g);
     }
     

@@ -21,7 +21,7 @@ public class FileUploadServiceImpl implements FileUploadService{
             try {
                 profileImage.setFileData(image.getBytes());
                 profileImage.setFileType(image.getContentType());
-                profileImage.setName(image.getOriginalFilename());
+                profileImage.setName_image(image.getOriginalFilename());
                 imageRepository.save(profileImage);
                 return profileImage;
             } catch (Exception e) {

@@ -1,4 +1,4 @@
-package com.disney.disney.controller;
+package com.alkemy.Disney.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;

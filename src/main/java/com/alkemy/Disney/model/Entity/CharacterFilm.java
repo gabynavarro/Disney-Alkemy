@@ -43,7 +43,7 @@ public class CharacterFilm implements Serializable {
     @ManyToMany()
     private List <Movie> associated_movies;
     
-    @OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
+    @OneToOne
     @JoinColumn(name="image_character")    
     private ImageProfile image_profile;
     

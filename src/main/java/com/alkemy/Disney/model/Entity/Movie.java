@@ -39,7 +39,7 @@ public class Movie {
     private LocalDate date_created;
     private int calificated; //del 1-5
 
-    @OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
+    @OneToOne
     @JoinColumn(name="image_movie")  
     private ImageProfile image_movie;
     @ManyToOne

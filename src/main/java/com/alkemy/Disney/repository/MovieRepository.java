@@ -1,4 +1,4 @@
-package com.disney.disney.repository;
+package com.alkemy.Disney.repository;
 
 import com.alkemy.Disney.model.Entity.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;

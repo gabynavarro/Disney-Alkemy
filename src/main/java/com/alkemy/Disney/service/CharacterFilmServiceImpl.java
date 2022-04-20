@@ -1,11 +1,11 @@
 package com.alkemy.Disney.service;
         
-import com.alkemy.Disney.service.abstraction.CharacterService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import com.alkemy.Disney.service.abstraction.CharacterFilmService;
 
 @Service
 @RequiredArgsConstructor
-public class CharacterServiceImpl implements CharacterService{
+public class CharacterFilmServiceImpl implements CharacterFilmService{
     
 }
