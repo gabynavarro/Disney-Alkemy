@@ -45,7 +45,7 @@ public class CharacterFilm implements Serializable {
     
     @OneToOne
     @JoinColumn(name="image_character")    
-    private ImageProfile image_profile;
+    private Image image_profile;
     
 
 }

@@ -1,5 +1,6 @@
 package com.alkemy.Disney.model.response;
 
+import com.alkemy.Disney.model.mapper.ModelImage;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,6 +13,7 @@ import lombok.Setter;
 @Builder
 public class GenderResponse {  
     private Long id;
-    private String name_gender;    
-    private String image_gender;  
+    private String name_gender;
+    private Boolean deleted;
+    private ModelImage image;
 }

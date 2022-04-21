@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,8 @@ import org.hibernate.annotations.GenericGenerator;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class IImage implements Serializable {
+@Builder
+public class Image implements Serializable {
     @Id
     @GeneratedValue(generator="uuid")
     @GenericGenerator(name="uuid",strategy="uuid2")
@@ -34,7 +36,8 @@ public class IImage implements Serializable {
     @Column(name = "fileType", nullable = false, updatable = true)
     private String fileType;
 
-    @Lob   
+    @Lob 
+    @Column(name = "fileData", nullable = false, updatable = true)
     private byte[] fileData;
 
 

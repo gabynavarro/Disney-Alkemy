@@ -1,14 +1,14 @@
 package com.alkemy.Disney.service.abstraction;
 
 import com.alkemy.Disney.model.Entity.Gender;
-import com.alkemy.Disney.model.Entity.ImageProfile;
+import com.alkemy.Disney.model.Entity.Image;
 import com.alkemy.Disney.model.request.GenderRequest;
 import com.alkemy.Disney.model.response.GenderResponse;
 import java.util.List;
 
 
 public interface GenderService {
-    GenderResponse save(GenderRequest request, ImageProfile image );
+    GenderResponse save(GenderRequest request, Image image );
 
     List<GenderResponse> getGenders();
 
@@ -16,5 +16,5 @@ public interface GenderService {
 
     void delete(Long id);
 
-    Gender getGender(Long Id);
+    GenderResponse getGender(Long Id);
 }

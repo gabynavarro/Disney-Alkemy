@@ -3,7 +3,6 @@ package com.alkemy.Disney.model.Entity;
 import io.swagger.annotations.ApiModel;
 import java.time.LocalDate;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -41,7 +40,7 @@ public class Movie {
 
     @OneToOne
     @JoinColumn(name="image_movie")  
-    private ImageProfile image_movie;
+    private Image image_movie;
     @ManyToOne
     private Gender gender_movie;
     

@@ -63,4 +63,9 @@ public class GenderController {
     public void deleteById(@PathVariable Long id) {
         genderService.delete(id);
     }
+    
+    @GetMapping("/{id}")    
+    public GenderResponse getById(@PathVariable Long id){
+        return genderService.getGender(id);
+    }
 }

@@ -1,13 +1,14 @@
 package com.alkemy.Disney.service;
 
 import com.alkemy.Disney.model.Entity.Gender;
-import com.alkemy.Disney.model.Entity.ImageProfile;
+import com.alkemy.Disney.model.Entity.Image;
 import com.alkemy.Disney.model.mapper.GenderMapper;
 import com.alkemy.Disney.model.request.GenderRequest;
 import com.alkemy.Disney.model.response.GenderResponse;
 import com.alkemy.Disney.repository.GenderRepository;
 import com.alkemy.Disney.service.abstraction.GenderService;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,38 +21,42 @@ public class GenderServiceImpl implements GenderService {
     @Autowired
     private GenderMapper genderMapper;
     @Autowired
-    private GenderRepository GenderRepository;
+    private GenderRepository genderRepository;
     
     @Transactional
     @Override
-    public GenderResponse save(GenderRequest request, ImageProfile image) {
-    
-        request.setImage_gender(image);    
-        Gender g=GenderRepository.save(genderMapper.toGender(request));
-//        System.out.println("ACA LLEGA "+ g.getImage_gender().getName_image());
-        return genderMapper.GenderToResponse(g);
+    public GenderResponse save(GenderRequest request, Image image) {
+        request.setImage_gender(image);           
+        return genderMapper.genderToResponse(genderRepository.save(genderMapper.toGender(request)));
     }
     
     
 
     @Override
     public List<GenderResponse> getGenders() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return genderRepository.findAll().stream()
+                .map( i -> genderMapper.genderToResponse(i) )
+                .collect(Collectors.toList());
     }
 
     @Override
     public void update(Long id, GenderRequest request) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Gender denderId = genderRepository.findById(id).orElseThrow();
+        denderId.setName_gender(request.getName_gender());
+       genderRepository.save(denderId);
     }
 
+    
     @Override
     public void delete(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Gender genderId = genderRepository.findById(id).orElseThrow();
+        genderId.setDeleted(true);
+        genderRepository.save(genderId);
     }
 
     @Override
-    public Gender getGender(Long Id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public GenderResponse getGender(Long Id) {
+       return genderMapper.genderToResponse(genderRepository.findById(Id).orElseThrow());
     }
     
 }

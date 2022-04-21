@@ -1,6 +1,6 @@
 package com.alkemy.Disney.service;
 
-import com.alkemy.Disney.model.Entity.ImageProfile;
+import com.alkemy.Disney.model.Entity.Image;
 import com.alkemy.Disney.repository.ImageRepository;
 import com.alkemy.Disney.service.abstraction.FileUploadService;
 import org.springframework.stereotype.Service;
@@ -15,15 +15,14 @@ public class FileUploadServiceImpl implements FileUploadService{
     private final ImageRepository imageRepository;
 
     @Override
-    public ImageProfile uploadImageProfileToDB(MultipartFile image) {
-        if(image != null){
-            ImageProfile profileImage = new ImageProfile();
+    public Image uploadImageProfileToDB(MultipartFile image) {
+        if(image != null){         
             try {
-                profileImage.setFileData(image.getBytes());
-                profileImage.setFileType(image.getContentType());
-                profileImage.setName_image(image.getOriginalFilename());
-                imageRepository.save(profileImage);
-                return profileImage;
+                 return imageRepository.save(Image.builder()
+                         .fileData(image.getBytes())                        
+                         .fileType(image.getContentType())
+                         .name_image(image.getOriginalFilename())
+                         .build());              
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;

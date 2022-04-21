@@ -37,7 +37,7 @@ public class Gender {
     
     @OneToOne
     @JoinColumn(name="image_gender")  
-    private ImageProfile image_gender;
+    private Image image_gender;
 
     @OneToMany()
     private List<Movie> movies;

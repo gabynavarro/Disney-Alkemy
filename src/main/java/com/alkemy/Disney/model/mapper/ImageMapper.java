@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ImageMapper {
 
-//    public ImageProfile imageProfileDto2Entity(ImageProfileRequest imageProfileRequest) {
+//    public Image imageProfileDto2Entity(ImageRequest imageRequest) {
 //        ImageProfile entity = new ImageProfile();
 //        entity.setName(imageProfileRequest.getName());
 //        entity.setFileData(imageProfileRequest.getFileData());

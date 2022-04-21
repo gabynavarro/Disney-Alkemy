@@ -1,14 +1,13 @@
 com/alkemy/Disney/repository/ImageRepository.class
 com/alkemy/Disney/ServletInitializer.class
 com/alkemy/Disney/model/Entity/Role.class
-com/alkemy/Disney/controller/UserController.class
 com/alkemy/Disney/model/response/GenderResponse.class
+com/alkemy/Disney/controller/UserController.class
 com/alkemy/Disney/service/abstraction/IUserService.class
 com/alkemy/Disney/model/Entity/User$UserBuilder.class
 com/alkemy/Disney/controller/GenderController.class
 com/alkemy/Disney/auth/config/seeder/DataBaseSeeders.class
 com/alkemy/Disney/model/mapper/UserMapper.class
-com/alkemy/Disney/model/Entity/ImageProfile.class
 com/alkemy/Disney/model/response/UserResponse.class
 com/alkemy/Disney/repository/IRoleRepository.class
 com/alkemy/Disney/service/abstraction/IAuthenticationService.class
@@ -23,8 +22,8 @@ com/alkemy/Disney/model/request/UserAuthenticatedRequest.class
 com/alkemy/Disney/model/request/UserRequest.class
 com/alkemy/Disney/model/response/UserAuthenticatedResponse.class
 com/alkemy/Disney/service/abstraction/FileUploadService.class
-com/alkemy/Disney/model/request/GenderRequest.class
 com/alkemy/Disney/model/response/RoleResponse.class
+com/alkemy/Disney/model/request/GenderRequest.class
 com/alkemy/Disney/auth/config/SecurityConfig.class
 com/alkemy/Disney/model/request/UserRegisterRequest$UserRegisterRequestBuilder.class
 com/alkemy/Disney/auth/exception/ParamNotFound.class
