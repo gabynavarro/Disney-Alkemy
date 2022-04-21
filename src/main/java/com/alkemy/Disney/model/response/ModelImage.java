@@ -1,4 +1,4 @@
-package com.alkemy.Disney.model.mapper;
+package com.alkemy.Disney.model.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

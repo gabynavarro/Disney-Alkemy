@@ -1,6 +1,5 @@
 package com.alkemy.Disney.service.abstraction;
 
-import com.alkemy.Disney.model.Entity.Gender;
 import com.alkemy.Disney.model.Entity.Image;
 import com.alkemy.Disney.model.request.GenderRequest;
 import com.alkemy.Disney.model.response.GenderResponse;

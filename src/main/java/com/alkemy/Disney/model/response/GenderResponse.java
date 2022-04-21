@@ -1,6 +1,5 @@
 package com.alkemy.Disney.model.response;
 
-import com.alkemy.Disney.model.mapper.ModelImage;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

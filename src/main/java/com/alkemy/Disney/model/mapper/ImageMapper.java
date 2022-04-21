@@ -2,25 +2,20 @@ package com.alkemy.Disney.model.mapper;
 
 
 
+import com.alkemy.Disney.model.Entity.Image;
+import com.alkemy.Disney.model.response.ModelImage;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ImageMapper {
 
-//    public Image imageProfileDto2Entity(ImageRequest imageRequest) {
-//        ImageProfile entity = new ImageProfile();
-//        entity.setName(imageProfileRequest.getName());
-//        entity.setFileData(imageProfileRequest.getFileData());
-//        entity.setFileType(imageProfileRequest.getFileType());
-//        return entity;
-//    }
-
-
-//    public ImageProfileRequest imageProfileEntity2Dto(ImageProfile entity) {
-//        ImageProfileRequest dto = new ImageProfileRequest();
-//        dto.setName(entity.getName());
-//        dto.setFileData(entity.getFileData());
-//        dto.setFileType(entity.getFileType());
-//        return dto;
-//    }
+    public ModelImage imageEntity2ModelImage(Image entity) {
+        String url="http://localhost:8080/api/v1/images/image/";
+        return ModelImage.builder()
+                .idImage(entity.getId())
+                .imageName(entity.getName_image())
+                .urlImage(url+entity.getId())
+                .build();
+        
+    }
 }
