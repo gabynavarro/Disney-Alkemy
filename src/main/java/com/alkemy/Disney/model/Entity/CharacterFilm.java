@@ -4,6 +4,7 @@ package com.alkemy.Disney.model.Entity;
 import io.swagger.annotations.ApiModel;
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -44,8 +45,8 @@ public class CharacterFilm implements Serializable {
     private double weight;
     private String history;
     
-    @ManyToMany()
-    private List <Movie> associated_movies;
+    @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "characters")   
+    private List <Movie> movies;
     
     @OneToOne   
     private Image image_character;

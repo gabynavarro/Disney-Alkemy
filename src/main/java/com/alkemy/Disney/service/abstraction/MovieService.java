@@ -9,4 +9,7 @@ import java.util.List;
 public interface MovieService {
     MovieResponse save(MovieRequest request, Image image);
     List<MovieResponse> findAll();
+    MovieResponse findById(Long id);
+    void deleted(Long id);
+    void update(Long id,MovieRequest request,Image image);
 }

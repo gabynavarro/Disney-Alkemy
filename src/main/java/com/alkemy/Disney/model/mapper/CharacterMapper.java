@@ -19,7 +19,7 @@ public class CharacterMapper {
                .deleted(Boolean.FALSE)
                .history(request.getHistory())
                .image_character(request.getImage_character())
-               .associated_movies(null)
+               .movies(null)
                .weight(request.getWeight())
                .name_character(request.getName_character())
                .build();  

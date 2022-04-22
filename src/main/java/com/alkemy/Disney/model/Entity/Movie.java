@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
@@ -56,7 +55,9 @@ public class Movie {
    
     private List<Gender> genders;
     
-    @ManyToMany
-    private List<CharacterFilm> Character;
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(name = "movie_character", joinColumns ={@JoinColumn(name = "id_movie")},
+    inverseJoinColumns = {@JoinColumn(name = "id_character")}) 
+    private List<CharacterFilm> characters;
 
 }
