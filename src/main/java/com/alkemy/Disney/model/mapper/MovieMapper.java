@@ -30,7 +30,7 @@ public class MovieMapper {
                .id(entity.getId())
                .title(entity.getTitle())
                .date_created(entity.getDate_created())
-              // .gender_movie(entity.getGenders().get(0))
+               .gender_movie(null)
                .Character(null)
                .calificated(entity.getCalificated())
                .image_movie(imageMapper.imageEntity2ModelImage(entity.getImage_movie()))               

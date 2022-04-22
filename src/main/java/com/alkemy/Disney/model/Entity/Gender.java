@@ -44,8 +44,7 @@ public class Gender {
     @OneToOne
     @JoinColumn(name="image_gender")  
     private Image image_gender;
-
-    @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "genders")
+     @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "genders")    
     private List<Movie> movies;
 
 }

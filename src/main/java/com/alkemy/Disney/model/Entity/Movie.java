@@ -50,10 +50,10 @@ public class Movie {
     @OneToOne    
     private Image image_movie;
  
-    
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(name = "movie_gender", joinColumns ={@JoinColumn(name = "id_movie")},
     inverseJoinColumns = {@JoinColumn(name = "id_gender")})  
+   
     private List<Gender> genders;
     
     @ManyToMany

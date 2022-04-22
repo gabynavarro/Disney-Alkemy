@@ -59,4 +59,9 @@ public class GenderServiceImpl implements GenderService {
        return genderMapper.genderToResponse(genderRepository.findById(Id).orElseThrow());
     }
     
+    @Override
+    public Gender finById(Long id){
+         return genderRepository.findById(id).orElseThrow();
+    }
+    
 }

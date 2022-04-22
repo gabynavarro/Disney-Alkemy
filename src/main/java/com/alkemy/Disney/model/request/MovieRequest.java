@@ -3,9 +3,11 @@ package com.alkemy.Disney.model.request;
 
 
 import com.alkemy.Disney.model.Entity.CharacterFilm;
+import com.alkemy.Disney.model.Entity.Gender;
 import com.alkemy.Disney.model.Entity.Image;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -32,6 +34,6 @@ public class MovieRequest {
     private int calificated; //del 1-5 
     private Image image_movie;
     @NotNull //obligatorio
-    private Long gender_movie;    
+    private List<Gender> gender_movie ;    
     private List<CharacterFilm> Character;
 }

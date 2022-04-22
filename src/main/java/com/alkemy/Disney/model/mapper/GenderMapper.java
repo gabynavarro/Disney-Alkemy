@@ -30,13 +30,5 @@ public class GenderMapper {
                 .image(imageMapper.imageEntity2ModelImage(gender.getImage_gender()))
                 .build();        
     }
-    
-    public Gender reponseToGender(GenderResponse response){
-        return Gender.builder()
-                .id(response.getId())
-                .name_gender(response.getName_gender())               
-                
-                .build();
-        
-    }
+ 
 }
