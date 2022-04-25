@@ -1,6 +1,5 @@
 package com.alkemy.Disney.model.mapper;
 
-import com.alkemy.Disney.model.response.ModelImage;
 import com.alkemy.Disney.model.Entity.Gender;
 import com.alkemy.Disney.model.request.GenderRequest;
 import com.alkemy.Disney.model.response.GenderResponse;

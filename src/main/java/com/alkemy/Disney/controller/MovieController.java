@@ -1,6 +1,7 @@
 package com.alkemy.Disney.controller;
 
 import com.alkemy.Disney.model.request.MovieRequest;
+import com.alkemy.Disney.model.response.ListMovieResponse;
 import com.alkemy.Disney.model.response.MovieResponse;
 import com.alkemy.Disney.service.abstraction.FileUploadService;
 import com.alkemy.Disney.service.abstraction.MovieService;
@@ -41,8 +42,8 @@ public class MovieController {
             throws URISyntaxException{        
         return movieService.save(request, fileUploadService .uploadImageProfileToDB(image));
     }
-    @GetMapping
-    public List<MovieResponse> getAllMovies(){
+    @GetMapping("/movies")
+    public List<ListMovieResponse> getAllMovies(){
         return movieService.findAll();
     }
     

@@ -24,24 +24,5 @@ public class ImageServiceImpl implements ImageService{
                .body(new ByteArrayResource(image.getFileData()));
     }
 
-//    @Override
-//    public void deleteImageByProduct(ResponseEntity<?> request) {
-//        if(request.getStatusCodeValue() == 200){
-//            Product product = (Product) request.getBody();
-//            System.out.println(product.getId());
-//            System.out.println(product.getName());
-//
-//            if(product.getImageProfile() != null) 
-//            deleteImage(product.getImageProfile());
-//    
-//            if(product.getImagePost().size() > 0) 
-//            deleteImagePost(product.getImagePost());
-//        }
-//    }
-
     private void deleteImage(Image image){imageRepository.delete(image);}    
-
-  
-   
-
 }

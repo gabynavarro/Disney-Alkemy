@@ -25,7 +25,7 @@ import org.hibernate.validator.constraints.Range;
 public class MovieRequest {
      
     @NotEmpty
-    @Size(min = 2, max = 20, message = " Name Gender must be between 2 and 20 characters long")
+    @Size(min = 2, max = 30, message = " Name Gender must be between 2 and 30 characters long")
     private String title;
     @Past (message = "La fecha creadad es mayor que la fecha actual")
     @JsonFormat(pattern="dd/MM/yyyy")
@@ -35,5 +35,5 @@ public class MovieRequest {
     private Image image_movie;
     @NotNull //obligatorio
     private List<Gender> gender_movie ;    
-    private List<CharacterFilm> Character;
+    private List<CharacterFilm> characters;
 }

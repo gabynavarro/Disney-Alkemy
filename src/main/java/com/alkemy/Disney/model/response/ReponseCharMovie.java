@@ -7,10 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @AllArgsConstructor @NoArgsConstructor
-@Getter @Setter
-@Builder
-public class CharacterResponse {
+@Getter @Setter @Builder
+public class ReponseCharMovie {
     private Long id; 
     private String name_character;
-    private ModelImage image_character;
 }

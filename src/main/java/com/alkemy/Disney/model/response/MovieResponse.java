@@ -20,5 +20,5 @@ public class MovieResponse {
     private int calificated; //del 1-5 
     private ModelImage image_movie;    
     private List<ResponseGenderMovie> gender_movie;    
-    private List<CharacterFilm> Character;
+    private List<ReponseCharMovie> Character;
 }

@@ -37,17 +37,7 @@ public class UserMapper {
                   .build();
     }
 //
-    public User userDtoEntity(User entity, UserRequest request) {
-//        entity.setAge(request.getAge());
-//        entity.setEmail(request.getEmail());
-//        entity.setAge(request.getAge());
-//        entity.setCity(request.getCity());
-//        entity.setCountry(request.getCountry());
-//        entity.setDni(request.getDni());
-//        entity.setFirstName(request.getFirst_name());
-//        entity.setLastName(request.getLast_name());
-//        entity.setImageUrl(request.getImage_url());
-//        entity.setProvince(request.getProvince());      
+    public User userDtoEntity(User entity, UserRequest request) {     
         entity.setPassword(passwordEncoder.encode(request.getPassword()));
         return entity;
 
@@ -57,26 +47,12 @@ public class UserMapper {
     public UserResponse convertTo(User userInstance) {
         UserResponse userResponse = new UserResponse();
         userResponse.setId(userInstance.getId());
-//        userResponse.setFirt_name(userInstance.getFirstName());
-//        userResponse.setAge(userInstance.getAge() );
-//        userResponse.setDni(userInstance.getDni());
-//        userResponse.setLast_name(userInstance.getLastName());        
-//        userResponse.setUsername(userInstance.getUsername());
-//        userResponse.setCity(userInstance.getCity());
-//        userResponse.setCountry(userInstance.getCountry());
-//        userResponse.setEmail(userInstance.getEmail());
-//        userResponse.setPassword(userInstance.getPassword());
-//        userResponse.setImage_url(userInstance.getImageUrl());
-//        userResponse.setProvince(userInstance.getProvince());
-//        userResponse.setRoles(userInstance.getRoles());
         return userResponse;
     }
     
     public UserRoleResponse convertToUserRole(User user) {
         UserRoleResponse userResponse = new UserRoleResponse();
         userResponse.setId(user.getId());
-//        userResponse.setFirt_name(user.getFirstName());
-      //  userResponse.setRoles(user.getRoles());
         return userResponse;
     }
     
