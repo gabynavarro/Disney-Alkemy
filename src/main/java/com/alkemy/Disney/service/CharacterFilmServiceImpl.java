@@ -9,6 +9,8 @@ import com.alkemy.Disney.repository.CharacterFilmRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.alkemy.Disney.service.abstraction.CharacterFilmService;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -32,36 +34,28 @@ public class CharacterFilmServiceImpl implements CharacterFilmService{
         CharacterResponse result = characterMapper.characterEntity2DTO(entitySaved);
         return result;
     }
-    //remplazar por buscar MovieId
-//    public List<Movie> listMovie(Long id){
-//        
-//        
-//    }
+ 
 
-//    public List<CharacterBasicDTO> getAllIcons() {
-//        List<CharacterEntity> entities = characterRepository.findAll();
-//        List<CharacterBasicDTO> result = characterMapper.characterEntityList2BasicDTOList(entities);
-//        return result;
-//    }
-
-//    public List<CharacterDTO> getAllIconsDetailed() {
+//    public List<ResponseCharacter> getAllIconsDetailed() {
 //        List<CharacterEntity> entities = characterRepository.findAll();
 //        List<CharacterDTO> result = characterMapper.characterEntityList2DTOList(entities, true);
 //        return result;
 //    }
 
-    public void delete(Long id) { characterRepository.deleteById(id); }
+    public void delete(Long id) { 
+        CharacterFilm characterId = characterRepository.findById(id).orElseThrow();
+        characterId.setDeleted(true);
+        characterRepository.save(characterId); 
+    
+    }
+     @Override
+    public void update(Long id, CharacterRequest request) {
+        CharacterFilm denderId = characterRepository.findById(id).orElseThrow();
+//        denderId.setName_gender(request.getName_gender());
+        characterRepository.save(denderId);
+    }
 
-//    public CharacterDTO update(Long id, CharacterDTO characterDTO) {
-//        Optional<CharacterEntity> entity = characterRepository.findById(id);
-//        if (!entity.isPresent()) {
-//            throw new ParamNotFound("Error: Invalid character id");
-//        }
-//        characterMapper.characterEntityRefreshValues(entity.get(), characterDTO);
-//        CharacterEntity entitySaved = characterRepository.save(entity.get());
-//        CharacterDTO result = characterMapper.characterEntity2DTO(entitySaved, false);
-//        return result;
-//    }
+
 
 //    public List<CharacterDTO> getByFilters(String name, Integer age, Set<Long> idFilm) {
 //        CharacterFiltersDTO filtersDTO = new CharacterFiltersDTO(name, age, idFilm);
@@ -69,4 +63,17 @@ public class CharacterFilmServiceImpl implements CharacterFilmService{
 //        List<CharacterDTO> dtos = characterMapper.characterEntityList2DTOList(entities, true);
 //        return dtos;
 //    }
+
+    @Override
+    public List<CharacterResponse> getAllCharacters() {
+          return characterRepository.findAll().stream()
+                .map( i -> characterMapper.characterEntity2DTO(i) )
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public CharacterResponse findById(Long id) {
+        return characterMapper.characterEntity2DTO(characterRepository.findById(id).orElseThrow());
+
+    }
 }
