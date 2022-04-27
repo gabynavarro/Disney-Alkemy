@@ -1,0 +1,874 @@
+{
+	"info": {
+		"_postman_id": "e9d6052e-cf4f-4849-b405-4c2f90c82a38",
+		"name": "Disney",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "{\n   \n    \"email\": \"alt64b@gmail.com\",\n    \"password\":\"12345678\",\n    \"first_name\":\"nuevo\",\n    \"last_name\":\"Navarro\" }",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8090/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidXNlcjFAdGVzdC5jb20iLCJpYXQiOjE2NTA5OTE4MzgsImV4cCI6MTY1MTAyNzgzOH0.Xi3VhlRczl1k0KKPgItk6VJMPTbGMplmZICYVRl-U_Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user1@test.com\",\n    \"password\":\"12345678\" \n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJjb25zdWx0YXRpb24uYnkudmlkZW8uY2FsbC5tb2RlbC5lbnRpdHkuUm9sZUA1NDcwYWViNSJdLCJzdWIiOiJwcm9mZXNzaW9uYWwxQHRlc3QuY29tIiwiaWF0IjoxNjUwMjg4OTg5LCJleHAiOjE2NTAzMjQ5ODl9.l9Zz8GP-bGObrYAJWEyprIfmbTWIHFHQwRP1-rTP9pc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/user/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"user",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/user/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/user/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"user",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UserUpdate",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "   {\"id\":2, \n    \"dni\": \"24757503\",\n    \"email\": \"alt64b8@gmail.com\",\n    \"password\":\"12345678\",\n    \"first_name\":\"soy yo\",\n    \"last_name\":\"Galdeano\",\n     \"city\": \"Fray Luis Beltran\",\n     \"country\":\"suecia\",\n     \"province\": \"salta\",\n     \"age\":48,\n     \"image_url\":null,\n     \"deleted\":false,\n     \"roles_id\":[2]}",
+									"contentType": "application/json",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8090/user/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addRolUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " [\n            {\n                \"id\": 1,\n                \"name\": \"ROLE_USER\",\n                \"description\": \"USER\"\n            },\n             {\n                \"id\": 4,\n                \"name\": \"ROLE_PATIENT\",\n                \"description\": \"PATIENT\"\n            }\n        ]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/user/roles/10",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"user",
+								"roles",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gender",
+			"item": [
+				{
+					"name": "Add Gender",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidXNlcjFAdGVzdC5jb20iLCJpYXQiOjE2NTA5MDgzNzgsImV4cCI6MTY1MDk0NDM3OH0.iuHQ8LK631RR154CRLdbzWDVFYQ48h8cAWuSEE4OSCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "gender",
+									"value": "{\"name_gender\":\"Homor\"}",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/gabyroot/Imágenes/autor.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8090/api/v1/gender",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"v1",
+								"gender"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Gender",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidXNlcjFAdGVzdC5jb20iLCJpYXQiOjE2NTA0ODY4MzUsImV4cCI6MTY1MDUyMjgzNX0.PGtlLQd2JRysRXSi1v3S3hCQmzM5V8RUn-6bSTu200w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name_gender\":\"Suspenso\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/api/v1/gender/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"v1",
+								"gender",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidXNlcjFAdGVzdC5jb20iLCJpYXQiOjE2NTA2MjQ5MTIsImV4cCI6MTY1MDY2MDkxMn0.Zx2kl61yC9YUW_DfRJPLVltZL3aVndoLgAHCEVoH6HE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:8090/api/v1/gender",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"v1",
+								"gender"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidXNlcjFAdGVzdC5jb20iLCJpYXQiOjE2NTA0OTUxNTQsImV4cCI6MTY1MDUzMTE1NH0.zSfMIfkL-Kt_BCrRuJ6FytKsQZJ1ZsdZt8AufaHsSgA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/api/v1/gender/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"v1",
+								"gender",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidXNlcjFAdGVzdC5jb20iLCJpYXQiOjE2NTA2MjQ5MTIsImV4cCI6MTY1MDY2MDkxMn0.Zx2kl61yC9YUW_DfRJPLVltZL3aVndoLgAHCEVoH6HE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/api/v1/gender/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"v1",
+								"gender",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Character",
+			"item": [
+				{
+					"name": "Add Character",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidXNlcjFAdGVzdC5jb20iLCJpYXQiOjE2NTA4OTMwODEsImV4cCI6MTY1MDkyOTA4MX0.ayHDiieTJZ8TWhB9gg-391_90LwqVTUOTFkavQzGAsA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "character",
+									"value": "{\"name_character\":\"Arnold\",\n\"age\":88,\n\"weight\":58.5,\n\"history\":\"Arnold el super pt\",\n\"id_Movie\":null }",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/gabyroot/Imágenes/tigre4+.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8090/api/v1/character",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"v1",
+								"character"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidXNlcjFAdGVzdC5jb20iLCJpYXQiOjE2NTA5OTE4MzgsImV4cCI6MTY1MTAyNzgzOH0.Xi3VhlRczl1k0KKPgItk6VJMPTbGMplmZICYVRl-U_Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/api/v1/character/characters",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"v1",
+								"character",
+								"characters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findyId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidXNlcjFAdGVzdC5jb20iLCJpYXQiOjE2NTA5MDgzNzgsImV4cCI6MTY1MDk0NDM3OH0.iuHQ8LK631RR154CRLdbzWDVFYQ48h8cAWuSEE4OSCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/api/v1/character/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"v1",
+								"character",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidXNlcjFAdGVzdC5jb20iLCJpYXQiOjE2NTA4OTMwODEsImV4cCI6MTY1MDkyOTA4MX0.ayHDiieTJZ8TWhB9gg-391_90LwqVTUOTFkavQzGAsA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "character",
+									"value": "{\"name_character\":\"superman Pi2\",\n\"age\":18,\n\"weight\":58.5,\n\"history\":\"Superman contra ataca\",\n\"id_Movie\":null }",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8090/api/v1/character/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"v1",
+								"character",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByFilter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidXNlcjFAdGVzdC5jb20iLCJpYXQiOjE2NTA5OTE4MzgsImV4cCI6MTY1MTAyNzgzOH0.Xi3VhlRczl1k0KKPgItk6VJMPTbGMplmZICYVRl-U_Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "name",
+								"value": "\"hombre araña\"",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:8090/api/v1/character/filter?movies=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"v1",
+								"character",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "name_character",
+									"value": "ped",
+									"disabled": true
+								},
+								{
+									"key": "age",
+									"value": "38",
+									"disabled": true
+								},
+								{
+									"key": "movies",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movie",
+			"item": [
+				{
+					"name": "Add Movie",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidXNlcjFAdGVzdC5jb20iLCJpYXQiOjE2NTA5OTE4MzgsImV4cCI6MTY1MTAyNzgzOH0.Xi3VhlRczl1k0KKPgItk6VJMPTbGMplmZICYVRl-U_Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "movie",
+									"value": "{\"title\":\"caballeros zodiaco \",\n \"date_created\":\"03/09/1995\",\n \"calificated\":2,\n \"gender_movie\":[{\"id\":2},{\"id\":3}],\n \"characters\":[{\"id\":4},{\"id\":5}]\n}",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/gabriel/Imágenes/qr_linkedin.png"
+								},
+								{
+									"key": "",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8090/api/v1/movie",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"v1",
+								"movie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidXNlcjFAdGVzdC5jb20iLCJpYXQiOjE2NTEwNjA5ODUsImV4cCI6MTY1MTA5Njk4NX0.3vppKGQ4oQNr29lAABHLPln9pHm8HNw-qPv0rv3Dr_w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/api/v1/movie/movies",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"v1",
+								"movie",
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FinDById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidXNlcjFAdGVzdC5jb20iLCJpYXQiOjE2NTA5OTE4MzgsImV4cCI6MTY1MTAyNzgzOH0.Xi3VhlRczl1k0KKPgItk6VJMPTbGMplmZICYVRl-U_Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/api/v1/movie/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"v1",
+								"movie",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidXNlcjFAdGVzdC5jb20iLCJpYXQiOjE2NTA2MjQ5MTIsImV4cCI6MTY1MDY2MDkxMn0.Zx2kl61yC9YUW_DfRJPLVltZL3aVndoLgAHCEVoH6HE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/api/v1/movie/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"v1",
+								"movie",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidXNlcjFAdGVzdC5jb20iLCJpYXQiOjE2NTA2NTQ2MDIsImV4cCI6MTY1MDY5MDYwMn0.wcp907G8vlQX9hzh3HbC7B3WLLFTCDLr7WBzHCsEL_M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "movie",
+									"value": "{\"title\":\"pancho \",\n \"date_created\":\"03/09/2000\",\n \"calificated\":1,\n \"gender_movie\":[{\"id\":1},{\"id\":2}],\n \"Character\":null\n}",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/gabyroot/Imágenes/bd.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8090/api/v1/movie/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"v1",
+								"movie",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByFilter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidXNlcjFAdGVzdC5jb20iLCJpYXQiOjE2NTEwMTgyNjMsImV4cCI6MTY1MTA1NDI2M30.vIh3iCvn6N0ZmVdfYfpBgmQzRASvvx-0xjfse3M3uB8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/api/v1/movie/filter?title=zorro",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"v1",
+								"movie",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "zorro"
+								},
+								{
+									"key": "genre",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "asc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
