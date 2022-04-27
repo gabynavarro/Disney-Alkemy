@@ -14,6 +14,7 @@ import com.alkemy.Disney.model.response.UserAuthenticatedResponse;
 import com.alkemy.Disney.model.response.UserRegisterResponse;
 import com.alkemy.Disney.model.response.UserResponse;
 import com.alkemy.Disney.model.response.UserRoleResponse;
+import com.alkemy.Disney.service.abstraction.EmailService;
 import com.alkemy.Disney.service.abstraction.IAuthenticationService;
 import com.alkemy.Disney.service.abstraction.IRegisterUserService;
 import com.alkemy.Disney.service.abstraction.IRoleService;
@@ -55,7 +56,8 @@ public class UserServiceImpl  implements UserDetailsService, IRegisterUserServic
 
     @Autowired
     private AuthenticationManager authenticationManager;
-   
+    @Autowired
+    private EmailService emailService;
 
     @Override
     public UserRegisterResponse register(UserRegisterRequest request, MultipartFile[] file) {
@@ -67,6 +69,9 @@ public class UserServiceImpl  implements UserDetailsService, IRegisterUserServic
         roles.add(roleService.findBy(ListRole.USER.getFullRoleName()));
         user.setRoles(roles);         
         User userCreate = userRepository.save(user);
+         if (userCreate != null) {
+            emailService.sendWelcomeEmail(userCreate.getUsername());
+        }
         UserRegisterResponse userRegisterResponse = userMapper.userEntity2Dto(userCreate);
         userRegisterResponse.setToken(jwtUtil.generateTokenUser((UserDetails) userCreate));
         return userRegisterResponse;      
