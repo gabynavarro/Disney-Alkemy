@@ -6,14 +6,17 @@ import com.alkemy.Disney.model.Entity.Movie;
 import com.alkemy.Disney.model.mapper.CharacterMapper;
 import com.alkemy.Disney.model.mapper.MovieMapper;
 import com.alkemy.Disney.model.request.CharacterRequest;
+import com.alkemy.Disney.model.request.FilterRequest;
 import com.alkemy.Disney.model.response.CharacterDetails;
 import com.alkemy.Disney.model.response.CharacterResponse;
 import com.alkemy.Disney.repository.CharacterFilmRepository;
+import com.alkemy.Disney.repository.especifications.CharacterSpecification;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.alkemy.Disney.service.abstraction.CharacterFilmService;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +31,9 @@ public class CharacterFilmServiceImpl implements CharacterFilmService{
     private CharacterFilmRepository characterRepository;
     @Autowired
     private MovieMapper muvieMapper;
-  
+    @Autowired
+    private CharacterSpecification characterSpecification;
+    
     @Transactional
     @Override
     public CharacterResponse save (CharacterRequest request, Image image){             
@@ -54,12 +59,6 @@ public class CharacterFilmServiceImpl implements CharacterFilmService{
 
 
 
-//    public List<CharacterDTO> getByFilters(String name, Integer age, Set<Long> idFilm) {
-//        CharacterFiltersDTO filtersDTO = new CharacterFiltersDTO(name, age, idFilm);
-//        List<CharacterEntity> entities = characterRepository.findAll(characterSpecification.getByFilters(filtersDTO));
-//        List<CharacterDTO> dtos = characterMapper.characterEntityList2DTOList(entities, true);
-//        return dtos;
-//    }
 
     @Override
     public List<CharacterResponse> getAllCharacters() {
@@ -71,11 +70,21 @@ public class CharacterFilmServiceImpl implements CharacterFilmService{
     @Override
     public CharacterDetails findById(Long id) {
         CharacterFilm chart=characterRepository.findById(id).orElseThrow();
-        List movieList=new ArrayList();
+        List movieList=new ArrayList();        
         for (Movie m : chart.getMovies()) {
             movieList.add(muvieMapper.toModelMovie(m));
         }
         return characterMapper.detailToDTO(chart,movieList);
 
+    }
+
+    @Override
+    public List<CharacterResponse> getByFilters(String name_character, Integer age, Set<Long> idFilm) {        
+        FilterRequest filtersDTO = new FilterRequest(name_character, age, idFilm);
+        List<CharacterFilm> entities = characterRepository.findAll(characterSpecification.getFiltered(filtersDTO));
+        return entities.stream()
+                .map(i->characterMapper.characterEntity2DTO(i))
+                .collect(Collectors.toList()); 
+       
     }
 }

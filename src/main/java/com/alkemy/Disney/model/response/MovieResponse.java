@@ -1,7 +1,5 @@
 package com.alkemy.Disney.model.response;
 
-import com.alkemy.Disney.model.Entity.CharacterFilm;
-
 import java.time.LocalDate;
 import java.util.List;
 import lombok.AllArgsConstructor;

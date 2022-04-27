@@ -9,15 +9,18 @@ import com.alkemy.Disney.model.mapper.GenderMapper;
 import com.alkemy.Disney.model.mapper.MovieMapper;
 import com.alkemy.Disney.model.request.MovieRequest;
 import com.alkemy.Disney.model.response.ListMovieResponse;
+import com.alkemy.Disney.model.request.MovieFiltersRequest;
 import com.alkemy.Disney.model.response.MovieResponse;
 import com.alkemy.Disney.model.response.ReponseCharMovie;
 import com.alkemy.Disney.model.response.ResponseGenderMovie;
 import com.alkemy.Disney.repository.CharacterFilmRepository;
 import com.alkemy.Disney.repository.MovieRepository;
+import com.alkemy.Disney.repository.especifications.MovieSpecifications;
 import com.alkemy.Disney.service.abstraction.GenderService;
 import com.alkemy.Disney.service.abstraction.MovieService;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +42,8 @@ public class MovieServiceImpl implements MovieService {
     private CharacterFilmRepository characterFilmRepository;
     @Autowired
     private CharacterMapper characterMapper;
+    @Autowired
+    private MovieSpecifications movieSpecifications;
     
     @Override
     public MovieResponse save(MovieRequest request, Image image) {
@@ -116,5 +121,16 @@ public class MovieServiceImpl implements MovieService {
             movieRepository.save(movieUpdate);
         }
     }
+
+    @Override
+    public List<ListMovieResponse> getByFilters(String title, Set<Long> genre, String order) {
+                MovieFiltersRequest movieFilters = new MovieFiltersRequest(title, genre, order);		
+		List<Movie> entities = movieRepository.findAll(movieSpecifications.getFiltered(movieFilters));		
+               return entities.stream()
+                .map(i-> movieMapper.listMovieDTO2(i))
+                .collect(Collectors.toList());   
+    }
+    
+    
     
 }

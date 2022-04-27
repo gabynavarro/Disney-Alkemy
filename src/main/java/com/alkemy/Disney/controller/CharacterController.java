@@ -8,6 +8,7 @@ import com.alkemy.Disney.service.abstraction.FileUploadService;
 import io.swagger.annotations.Api;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Set;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -67,4 +69,11 @@ public class CharacterController {
             throws URISyntaxException{
         characterService.update(id, request);
     }
+    @GetMapping("/filter")
+	public List<CharacterResponse> getDetailsByFilters(
+				@RequestParam(required = false ) String name_character,
+				@RequestParam(required = false) Integer age,
+				@RequestParam(required = false) Set<Long> movies){		
+		return   characterService.getByFilters(name_character, age, movies);
+	}
 }
