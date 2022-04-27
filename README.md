@@ -1,5 +1,5 @@
 # Disney-Alkemy
-Poryecto disney
+Proyecto explorar el mundo disney
 
 # Spring Boot & Postman
 
