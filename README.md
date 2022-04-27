@@ -29,8 +29,8 @@ EMAIL_API_KEY = key
 
 | email              | role  |  
 |--------------------|-------|
-| ADMIN{id}@test.com | admin | 
-| USER{id}@test.com  | user  | 
+| admin{id}@test.com | admin | 
+| user{id}@test.com  | user  | 
 
 By default, 3 users with admin role and 3 users with user role will be created where the {id} in
 the email is a number from 0 to 3 per role. All the users have "12345678" as password.
